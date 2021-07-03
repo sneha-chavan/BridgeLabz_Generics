@@ -1,32 +1,39 @@
 package Generic.Max;
 
-public class MaxInt {
-	private Integer x,y,z;
+public class MaxInt<E> {
+	private E x,y,z;
 	
-	
-	
-	public MaxInt(Integer x, Integer y, Integer z) {
+	public MaxInt(E x, E y, E z) {
 		super();
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
+	
 
-	public static Integer maxInt(Integer a, Integer b, Integer c) {
-		Integer max= a;
-		if(b.compareTo(max) > 0) {
-			max=b;
+	public static <E extends Comparable<E>> E maximum(E r,E q, E c) {
+		E max = r;
+		if(q.compareTo(max)>0) {
+			max=q;
 		}
-		if (c.compareTo(max) > a) {
-			max = c;
+		if(c.compareTo(max)>0) {
+			max=c;
 		}
 		return max;
 	}
 
+
 	public static void main(String[] args) {
-		Integer a=9,b=5,c=7;
-		Integer max= maxInt(a,b,c);
-		System.out.println(max);
+		
+		Integer x=1,y=2,z=3;
+		Float l=0.1f, h=0.6f,g=9.6f;
+		String r="hi",q="hello",c="world";
+		System.out.println(maximum(x,y,z));
+		System.out.println(maximum(l,h,g));
+		System.out.println(maximum(r,q,c));
+		
 		
 	}
+
+	
 }
